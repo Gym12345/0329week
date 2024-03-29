@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>수입력(짝/홀판별)</td> 
+            <td><textarea id="evenOddNum"></textarea></td>
+        </tr>
+    </table>
+    
+    <table border="1">
+        <tr>
+            <td>수입력(3의배수판별)</td>
+            <td><textarea id="thirdNum"></textarea></td>
+        </tr>
+    </table>
+    
+    <table border="1">
+        <tr>
+            <td>첫번째수입력(대/소비교)</td>
+            <td><textarea id="num1"></textarea></td>
+        </tr>
+    </table>
+    
+    <table border="1">
+        <tr>
+            <td>두번째수입력(대/소비교)</td>
+            <td><textarea id="num2"></textarea></td>
+        </tr>
+    </table>
+    
+    <table border="1">
+        <tr>
+           <td><textarea id="result">1</textarea></td>
+        </tr>
+    </table>
+    
+    <script>
+
+        const evenOddNumInput=document.getElementById('evenOddNum');
+        const thirdNumInput=document.getElementById('thirdNum');
+
+        const num1Input = document.getElementById('num1');
+        const num2Input = document.getElementById('num2');
+        const resultDisplay = document.getElementById('result');
+        
+        function updateEvenOdd(){
+            let res;
+            evenOddNum=parseFloat(evenOddNumInput.value) ||0;
+            if(evenOddNum%2==0){
+                res=evenOddNum+" is even number";
+            }else{
+                res=evenOddNum+" is odd number";
+            }
+            return res;
+
+        }
+        function updateThird(){
+            let res;
+            thirdNum=parseFloat(thirdNumInput.value) ||0;
+            if(thirdNum%3==0){
+                res=thirdNum+" is multiple of 3";
+            }
+            else{
+                res=thirdNum+" is not multiple of 3";
+            }
+            return res;
+        }
+
+        function updateRes() {
+            const num1 = parseFloat(num1Input.value) || 0;
+            const num2 = parseFloat(num2Input.value) || 0;
+            
+            let res;
+            if(num1>num2){
+                res=num1+" is higher than "+num2;
+            }
+            else{
+                res=num2+" is higher than "+num1;
+            }
+            return res;
+          
+            
+        }
+        function displayAll(){
+            let compareRes=updateRes();
+            
+            let thirdNumRes=updateThird();
+            let evenOddNumRes=updateEvenOdd();
+            resultDisplay.textContent=compareRes + "\n"+ thirdNumRes + "\n"+evenOddNumRes;
+        }
+        
+        num1Input.addEventListener('input', displayAll);
+        num2Input.addEventListener('input', displayAll);
+        thirdNumInput.addEventListener('input',displayAll)
+        evenOddNumInput.addEventListener('input',displayAll);
+        displayAll();
+    </script>
+    
+</body>
+</html>

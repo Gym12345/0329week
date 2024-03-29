@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let myVar;
+        const start = () => {
+            myVar=setInterval(myTimer,1); //1000 이하면 똑같이보임 더빨리 함수호출 간격이 짧아지는것이기때문에 초단위까진 같음  
+        }
+        const myTimer = () =>{
+            let d = new Date();
+            document.getElementById("time").innerHTML=d.toLocaleString();
+        }
+        const stop=() =>{
+            clearInterval(myVar);
+        }
+    </script>
+
+    <p id="time"></p>
+    <button onclick="start()">start</button>
+    <button onclick="stop()">stop</button>
+
+
+
+</body>
+</html>

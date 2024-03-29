@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>5의배수판별</tr>
+        <tr><textarea id="fifthNumInput"></textarea></tr>
+    </table>
+    <table>
+        <tr><textarea id="resultDisplay"></textarea></tr>
+    </table>
+    
+    <script>
+        const resultDisplay = document.getElementById('resultDisplay');
+        let fifthNumInput=document.getElementById("fifthNumInput");
+
+        
+        function updateResult(){
+            let fifthNum=parseFloat(fifthNumInput.value) || 0;
+            
+            if(fifthNum%5==0){
+                res=fifthNum+"is multiple of 5";
+            }
+            else{
+                res=fifthNum+"is not multiple of 5";
+            }
+
+            return res;
+
+        }
+        function display(){
+            let finalResult=updateResult();
+
+
+            resultDisplay.textContent=finalResult;
+        }
+        fifthNum=addEventListener('input',display);
+        display();
+
+    </script>
+
+
+
+</body>
+</html>

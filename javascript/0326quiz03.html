@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>original</h1>
+    <div id="tableLayout"></div>
+    <hr>
+    <h1>transferred</h1>
+    <div id="transferredLayout"></div>
+
+    <script>
+       
+        const list=['test1.jpg','test2.jpg','test3.jpg','test4.jpg','test5.jpg','test6.jpg','test7.jpg','test8.jpg'];
+        let tableLayout=document.getElementById("tableLayout");
+        let transferredLayout=document.getElementById("transferredLayout");
+        let arrForTransferred=[]; //
+
+
+        let html=`<table border="1" id="table1"> <tr>`;
+        for(let i=1;i<=list.length;i++){
+           
+            html+=`<td >
+                <img id="grid${i}" height="200px" width="200px" src="./resources/images/test${i}.jpg">
+                </td>`
+            if(i==4){
+                html+=`</tr> <tr> `
+            }
+           
+        }
+        html+=`</tr> </table>`;
+        console.log("html:"+html);
+        tableLayout.innerHTML=html;
+        
+
+        let arrForElement=[];
+        for(let j=1;j<=list.length;j++){
+            arrForElement.push(document.getElementById(`grid${j}`));
+            
+        }
+        for(let k=0;k<=arrForElement.length;k++){
+            arrForElement[k].addEventListener('click',transfer);
+            arrForElement[k].addEventListener('mouseover',handleMouseOver);
+            arrForElement[k].addEventListener('mouseout',handleMouseOut);
+        }   
+       
+
+
+
+        function handleMouseOver(event){
+            
+            const originalImage=event.target.src;
+            event.target.src="./resources/images/add.png";
+            event.target.setAttribute("originalSrc",originalImage);
+        }
+
+        function handleMouseOut(event){
+            const originalImage = event.target.getAttribute("originalSrc");
+            event.target.src=originalImage;
+        }
+       
+
+        function transfer(event){
+
+            arrForTransferred.push(event.target.getAttribute("originalSrc"));
+            let html=`<table border="1" id="table1"> <tr>`;
+            for(let m=1;m<=arrForTransferred.length;m++){
+                // console.log(arrForTransferred[m]);
+                html+=`<td >
+                <img id="transferredGrid${m}" height="200px" width="200px" src="${arrForTransferred[m-1]}">
+                </td>`
+                
+            if(m%4==0){
+                html+=`</tr> <tr> `
+            }
+
+            }
+
+            html+=`</tr> </table>`;
+            transferredLayout.innerHTML=html;
+        }
+
+       
+       
+
+    </script>
+    
+
+    
+    
+</body>
+</html>

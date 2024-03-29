@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div id="displayDiv1">the list will be displayed</div>
+        <button id="showAllBtn">show all memeber</button>
+    </div>
+    <br>
+    <div>
+        <div id="displayDiv2">the result will be displayed</div>
+        <input id="userIdInput" type="text" placeholder="input id"> <br>
+        <button id="showSpecificBtn">show specific memeber</button>
+
+    </div>
+    <br>
+    <div>
+        <div id="displayDiv3">the result will be displayed</div>
+        <input id="delUserInput" type="text" placeholder="input id"> <br>
+        <button id="delSpecificBtn">delete specific memeber</button>
+    </div>
+
+    
+
+    <script>
+        let userDB =[
+            {userId:'aaa',userName:'Gym',age:'24'},
+            {userId:'bbb',userName:'lee',age:'22'},
+            {userId:'ccc',userName:'choi',age:'23'},
+        ]
+    onload= () => {
+        let showAllBtn=document.getElementById("showAllBtn")
+        let showSpecificBtn=document.getElementById("showSpecificBtn");
+        let delSpecificBtn=document.getElementById("delSpecificBtn");
+        let userIdInput=document.getElementById("userIdInput");
+        let delUserInput=document.getElementById("delUserInput");
+
+        showAllBtn.addEventListener('click',showAll);
+        showSpecificBtn.addEventListener('click',showSpecicific);
+        delSpecificBtn.addEventListener('click',delSpecific);
+
+        let displayDiv1=document.getElementById("displayDiv1");
+        let displayDiv2=document.getElementById("displayDiv2");
+        let displayDiv3=document.getElementById("displayDiv3");
+    }
+    
+    function showAll () {   
+        let allUserHtml=`<table border="1">`;
+            allUserHtml+=`<tr>  
+                    <td>아이디</td> 
+                    <td>이름</td>
+                    <td>나이</td>
+                        </tr>`
+            userDB.forEach((user) =>{
+                allUserHtml+=
+                `<tr>
+                    <td>${user.userId}</td> 
+                    <td>${user.userName}</td>
+                    <td>${user.age}</td>
+                </tr>`;
+            })
+
+              
+            allUserHtml+="</table>";
+
+            displayDiv1.innerHTML=allUserHtml;
+        }
+
+    
+    function showSpecicific(){
+        let userHtml='';
+        userDB.forEach((user)=>{
+            if(user.userId==userIdInput.value){
+            
+                userHtml=`<table border="1">
+                    <tr>  
+                    <td>아이디</td> 
+                    <td>이름</td>
+                    <td>나이</td>
+                        </tr>
+                    <tr>
+                    <td>${user.userId}</td> 
+                    <td>${user.userName}</td>
+                    <td>${user.age}</td>
+                </tr>
+                </table>
+                `;
+            }
+           
+        });
+        console.log(userHtml);
+        displayDiv2.innerHTML=userHtml;
+
+
+    }
+    
+    function delSpecific(){
+    console.log('before:', userDB); console.log(delUserInput.value);
+    userDB.forEach((user,index) =>{
+             
+               
+                if(user.userId==delUserInput.value){
+                    userDB.splice(index,1);
+                   
+                }
+            })
+
+   console.log('after:', userDB);
+}
+
+</script>
+</body>
+</html>

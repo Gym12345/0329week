@@ -1,0 +1,20 @@
+{
+  "name": "gym_npm",
+  "version": "1.0.0",
+  "description": "hi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx supervisor app02.js" 
+  },
+  "author": "gym",
+  "license": "ISC",
+  
+ 
+   "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "react-router-dom": "^6.22.3",
+    "supervisor": "^0.12.0"
+  }
+}

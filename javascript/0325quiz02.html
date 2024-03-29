@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #table01 img{ width: 100px; height:100px;}
+</style>
+<body>
+    <script>
+        onload= () => {
+            const images=document.querySelectorAll('#table01 img');
+            images.forEach((image) => {
+                image.addEventListener('mouseover',handleMouseOver);
+                image.addEventListener('mouseout',handleMouseOut);
+            })
+        } 
+
+     
+        const handleMouseOver = (event) => {
+                const originalImage=event.target.src
+;
+                event.target.src="./resources/images/add.png";
+            
+                event.target.setAttribute('originalImage',originalImage);
+            };
+            
+            
+            const handleMouseOut = (event) => {
+                const originalImage=event.target.getAttribute('originalImage');
+                event.target.src=originalImage;
+            };
+
+
+    </script>
+    <table border="1" id="table01">
+        <tr>
+            <td><img src="./resources/images/test1.jpg"></td><td><img src="./resources/images/test2.jpg"></td><td><img src="./resources/images/test3.jpg"></td><td><img src="./resources/images/test4.jpg"></td>
+        </tr>
+        <tr>
+            <td><img src="./resources/images/test5.jpg"></td><td><img src="./resources/images/test6.jpg"></td><td><img src="./resources/images/test7.jpg"></td><td><img src="./resources/images/test8.jpg"></td>
+
+        </tr>
+    </table>
+</body>
+</html>

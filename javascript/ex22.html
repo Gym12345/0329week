@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link href="ex22styles.css" rel="stylesheet">
+
+<body>
+<script src="ex22.js"></script>
+<script>
+    // testobj.test1();
+
+    function myFocus(){
+        let pwd=document.getElementById('pwd');
+        console.log(pwd.value);
+        if(pwd.value == ""){
+            alert('pwd 는필수');
+            pwd.focus();
+        }
+        else{
+            document.getElementById('copy').value =pwd.value;
+        }
+    }
+    
+</script>    
+
+<!-- 
+    <form action="ex22.html" method="get">
+        <input type="text" id="txt"><br>
+        <input type="text" id="pwd"><br>
+        <input type="text" id="copy"><br>
+        <input type="submit" value="click" onclick="myFocus()"><br>
+    </form> -->
+
+    <form action="ex22.html" method="get">
+        <input type="text" id="txt"><br>
+        <input type="text" id="pwd"><br>
+        <input type="text" id="copy"><br>
+        <input type="submit" value="click" onclick="myFocus()"><br>
+    </form>
+
+</body>
+</html>

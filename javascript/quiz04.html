@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>수입력 (구구단) :</td>
+        <td><textarea id="numInput"></textarea></td>
+        </tr>
+    </table>
+    <br>
+    <table border="1">
+        <tr>
+            <td>결과</td>
+            <td><textarea rows="10" cols="30" id="resultDisplay"></textarea></td>
+        
+        </tr>
+    </table>
+
+    <script>
+        let numInput=document.getElementById("numInput");
+        let resultDisplay= document.getElementById("resultDisplay");
+
+        function generateMultiple(){
+            let num=parseFloat(numInput.value) || 0;
+            let res=" ";
+            for(let i=1;i<=9;i++){
+                res=res+`\n ${num} * ${i}= ${num*i}`;
+            }
+            return res;
+        }
+        function displayAll(){
+            let finalResult=generateMultiple();
+
+            resultDisplay.textContent=finalResult;
+        }
+        numInput.addEventListener('input',displayAll);
+        displayAll();
+
+    </script>
+</body>
+</html>

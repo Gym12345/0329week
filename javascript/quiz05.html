@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>아파트 층 수 입력</td>
+            <td><input id="floorInput"></td>
+        </tr>
+    </table>
+    <hr>
+    <div id="resultTable"></div> <!-- Placeholder for the result table -->
+    
+    <script>
+        let floorInput=document.getElementById("floorInput");
+        let resultTable = document.getElementById("resultTable")
+        
+        function generateApartment(){
+            let floor= parseFloat(floorInput.value);
+            let tableHTML = '<table border="1">';
+            for (let i = floor; i >= 1; i--) {
+                tableHTML += `<tr> 
+                    <td>${i}01</td> <td>${i}02</td> 
+                    <td>${i}03</td><td>${i}04</td>
+                </tr>`;
+            }
+            tableHTML += '</table>';
+            resultTable.innerHTML = tableHTML;// .innerHTML은해당 태그 내부에 만들어주는거
+        }
+      
+        
+       
+        floorInput.addEventListener('input',generateApartment);
+        generateApartment()
+    </script>
+</body>
+</html>

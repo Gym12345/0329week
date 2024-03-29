@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=()=>{
+            let myC=document.getElementById('myC');
+            myC.addEventListener('click',myConfirm);
+            let myO=document.getElementById('myO');
+            myO.addEventListener('click',myOpen);
+        }
+        function myOpen(){
+            // window.open();
+            //window.open()을 사용하면 새로운 창이 열리는 것을 확인할 수 있다.
+            //_blank와 같은 역할을 한다.
+            // open('https://www.naver.com')
+            //open을 사용하여 링크 주소로 이동
+            // window.open('https://www.naver.com','_self');
+            //self가 있으면 자기 창에서 전환이 되고
+            //self가 없으면 새로운 창에서 열린다.
+            // window.open('ex30.html','','width=500,height=500');
+            window.open('popup.html','','width=500,height=500');
+
+        }
+        const myConfirm=()=>{
+            let result =confirm('처음 방문???')
+            console.log(result)
+            //확인을 누르면 true 취소를 누르면 false
+            let msg='';
+            if(result){
+                msg='처음 방문 감사감사'
+            }else{
+                msg ="재방문 감사감사!!"
+            }
+            document.getElementById('myP').innerHTML=msg;
+        }
+    </script>
+</head>
+<body>
+    <button type="button" id="myC">클릭</button>
+    <p id="myP"></p>
+    <!-- window.open기능 -->
+    <input type="button" id="myO" value="창열기">
+</body>
+</html>

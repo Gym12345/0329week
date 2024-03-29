@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    #id01{color:red;}
+    #id02{background: aqua;}
+    .class01{color:blue;}
+    .class02{background:aqua;}
+</style>
+
+</head>
+<body>
+    <div id="id01" class="class02"  >  <!--id는 한번에 한 #값만  id 가 우선reference-->
+        id를 부여할경우 문서내의 유일한 값으로 사용 <br>
+        문서내에서 동일한 id를 부여하면 안된다
+    </div>
+    <div class="class01 class02"><!--class 는 여러개 가능 -->
+        class는 다른태그에서 사용해도된다 <br>
+        여러개를 동시에 부여할수있다
+    </div>
+
+
+</body>
+</html>

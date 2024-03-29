@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    var cnt=1;
+    var myVar;
+
+    $( () => {
+        $('img').mousedown ( () => {
+            myVar=setInterval(imgFunc,50);
+            console.log('cnt:'+cnt);
+       
+    })
+
+
+    $('img').mouseup(   ()=>{
+        clearInterval(myVar);
+    })
+
+})
+
+
+    const imgFunc=() =>{
+        if(cnt==10) cnt=1;
+
+        $("#img").attr("src","/javascript/resources/images/p"+cnt+".png");
+        //${"#img"}.attr("class","c");
+
+        cnt++;
+    }
+</script>
+
+<body>
+    <div align="center">
+        <img id="img" src="/javascript/resources/images/p1.png" width="100px" height="100px">
+    </div>
+    
+</body>
+</html>

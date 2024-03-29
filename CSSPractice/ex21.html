@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        #wrap{
+            height:200px; width:200px;margin:auto;
+            border:1px solid lightgray; padding: 10px;
+            border-radius: 5px;
+        }
+        .id{ width:200px; height:20px; font-size:20px;
+            border:none;
+            border-bottom: 2px solid darkgray;
+            margin:10px 0   
+        }
+        .id:focus{
+            outline: none;   /*클릭시 테두리 안보이게*/
+        }
+        .id::-webkit-input-placeholder{
+            text-align: center;
+            letter-spacing: 5px;
+        }
+        .pwd{border-radius: 5px; height:20px; margin-bottom: 10px;}
+        .btn{border-radius: 5px; width:200px;height:30px; background: lemonchiffon;}
+    </style>
+<body>
+    
+   <div id="wrap">
+
+   
+        <h3 style="text-align: center; border-bottom:1px solid;">
+        로그인페이지</h3>
+    <form>
+        <input class="id" type="text" placeholder="input"> <br>
+        <input class="pwd" type="text" placeholder="input password"> <br>
+        <input class="btn" type="submit" value="login"> <br>
+    </form>
+</div>
+
+</body>
+</html>

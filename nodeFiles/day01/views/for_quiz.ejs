@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>단순 for</h1>
+    <ul>
+        <% for (let i=0 ; i< datas.rank.length ;i++) {%> 
+            <li><%=datas.rank[i]%></li>
+        <%}%>
+    </ul>
+
+   <hr>
+
+   <h1>이중 for문</h1>
+   <ul>
+    
+
+        <!-- <li><%=(datas.rank.length)%></li> -->
+        <% for (let i=0 ; i< datas.rank.length;i++) {%> 
+            <% for (let j=0 ; j< datas.rank[i].length;j++) {%> 
+                <li><%=datas.rank[i][j]%></li>
+            <%}%>
+        <%}%>
+</ul>
+</body>
+</html>

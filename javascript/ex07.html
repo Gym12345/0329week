@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function test(){
+            alert("즉시실행");
+        })();  //바로실행
+
+        let name ="gym"
+        let result=(function test1(n){   //함수를 () 감싸고 그후마지막뒤에  (); 붙이기
+            
+            let db=n+"님의 정보입니다";
+            return db;
+        })(name); 
+        document.write(result);
+
+
+</script>
+</body>
+</html>

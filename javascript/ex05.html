@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    enter number:<input id="numberInput"> 
+    <div id="showResult"></div>
+
+    <script>
+
+        let numberInput=document.getElementById("numberInput");
+       
+        let showResult=document.getElementById("showResult");
+     
+        function showTable(){
+            let num=parseFloat(numberInput.value);  // 안에 넣어줘야
+            console.log(num);
+            let table='<table border="1"> ';
+            for (let i=num;i>=1;i--){
+                table=table+`<tr>
+                    <td>${i}</td>
+                </tr>`;
+            
+            };
+            table=table+'</table>'
+            console.log(table);
+            showResult.innerHTML=  table   ;
+       
+        }
+      
+        numberInput.addEventListener('input',showTable); // 이벤트 리스너에 숫자 불러오는거를 동적으로 만들어줄수있음
+        showTable();
+
+
+
+    </script>
+    
+</body>
+</html>

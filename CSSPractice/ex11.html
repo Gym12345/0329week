@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{background: skyblue; display: inline-block; width:200px;
+            text-align: center;
+        }
+        span{background: olive; display:block;}
+        .visible:hover ~ .none{display:none; background: yellowgreen;}
+        
+</style>
+
+</head>
+<body>
+    <div>div01</div>
+    <div>div02</div>
+
+    <span>span-01</span>
+    <span>span02</span>
+    <h1 class="visible">마우스를 올려주세요</h1>
+    <h1 class="none">내용</h1>
+</body>
+</html>

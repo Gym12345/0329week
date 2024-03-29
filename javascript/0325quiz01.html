@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        let enterFunc = (x,y) => {
+            let max=0;
+            if (x>y) {
+                max=x;
+            }
+            else if(x<y){
+                max=y;
+            }else{
+                max="same";
+            }
+            return max;
+        }
+
+       
+        let evenOddResult=(function decideEvenOdd(num) {
+            let result;
+            if(num%2==0){
+                result="even";
+            }
+            else{
+                result="odd";
+            }
+            
+            return result;
+        })(20);
+
+        function decidePrime(num){
+            let cnt=0;
+            let res="";
+            for(let i=1;i<=num;i++){
+                if(num%i==0){
+                    cnt=cnt+1;
+                } 
+            }
+            if(cnt==2){
+                res=num+" is prime number";
+            }
+            else{
+                res=num+" is not prime number";
+            }
+            return res;
+        }
+
+        let makeAbsolute=(num) =>{
+            console.log(num, typeof(num));
+            return Math.abs(num);
+        }
+
+          
+       
+        document.write("(funcByLambda) max="+enterFunc(10,9));
+        document.write("<br>");
+        document.write("(instant funcrun) evenOddResult="+evenOddResult);
+        document.write("<br>");
+
+        document.write("(normal func)"+decidePrime(19));
+        document.write("<br>");
+        
+
+        document.write("절댓값:"+makeAbsolute(-21));
+    </script>
+</body>
+</html>

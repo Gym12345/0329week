@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let name = prompt("Enter name:");
+        let age = prompt("Enter age:");
+        let addr = prompt("Enter address:");
+    </script>
+</head>
+
+
+<body>
+    <table border="1">
+        <tr>
+            <td>이름</td> 
+            <td>나이</td>
+            <td>주소</td>
+        </tr>
+        <tr>
+            <td id="nameCell"></td>
+            <td id="ageCell"></td>
+            <td id="addrCell"></td>
+        </tr>
+    </table>
+
+    <script>
+        //get element id from html and bind to variable
+        let nameCell=document.getElementById("nameCell");
+        let ageCell=document.getElementById("ageCell");
+        let addrCell=document.getElementById("addrCell");
+
+        //variable = data
+        nameCell.textContent=name;
+        ageCell.textContent=age;
+        addrCell.textContent=addr;
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .nav{background: black;}
+        .nav > ul{list-style: none; display:flex; justify-content:flex-end;}
+        .nav ul li a{text-decoration: none; color:white; }
+        .nav ul li a:hover{color:yellow; border: 5px solid orange ; padding-bottom:2px; padding-top:2px} 
+        .nav ul li{background:yellowgreen; padding: 5px 10px;}  /*상하 좌우*/
+
+    </style>
+
+
+</head>
+<body>
+    <nav class="nav">
+        <ul>
+            <li><a href="">home</a></li>
+            <li><a href="">board</a></li>
+            <li><a href="">Membership</a></li>
+        </ul>
+    </nav>
+    <HR>
+        display:flex 사용시 아래내용 적용가능 <br>
+        flex-start: 왼쪽끝 정렬 <br> flex-end:오른쪽끝 정렬 <br>
+        space-around :요소 좌우 동일 간격정렬<br>
+    
+</body>
+</html>

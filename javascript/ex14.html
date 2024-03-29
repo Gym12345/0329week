@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const data=['1111','2222','3333'];
+
+        for(let i=0;i<data.length;i++){
+            document.write(data[i]+"<br>");
+
+        }
+        document.write("<hr>");
+
+        function t(d){
+            console.log(d)
+        }
+        data.forEach(t); 
+        let msg="";
+        let result=data.forEach((d) =>{
+            document.write(d+"<br>");
+
+            return msg;
+        })
+
+        document.write("<hr>"+result+"<hr>");
+        function t02(d){
+            return `<b style="color:red;">${d}</b>`;
+        }   
+        const mapData=data.map(t02);
+        document.write("<hr>"+mapData+"<hr>");
+
+        const mapData02=data.map((d)=>`<b style="color:yellow;">${d}</b>`);
+        document.write("<hr>"+mapData02+"<hr>");
+
+        
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+</head>
+<body>
+    <h1>Registration Successful!</h1>
+    <div id="userData"></div>
+
+    <script>
+       function decodeURLParams(url) {
+            const params = new URLSearchParams(url);
+            const decodedParams = {};
+            for (let pair of params.entries()) {
+                decodedParams[pair[0]] = decodeURIComponent(pair[1]);
+            }
+            return decodedParams;
+}
+
+    const currentURL = window.location.href;
+    console.log(currentURL)
+    const decodedParams = decodeURLParams(currentURL);
+    console.log(decodedParams)
+
+    const userId = decodedParams['userId'];
+    const userName = decodedParams['name'];
+
+        console.log("User ID:", userId);
+        console.log("User Name:", userName);
+        // Display form data
+        
+        document.getElementById('userData').innerHTML = `<p>ID: ${userId}</p><p>Name: ${userName}</p>`;
+    </script>
+</body>
+</html>

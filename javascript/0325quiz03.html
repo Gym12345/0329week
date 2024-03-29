@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #imageMenu{
+        width: 300px;
+        height: 300px;
+    } 
+
+    #div02 {
+       
+        text-align:center;
+        background-color: pink;
+        padding-bottom: 50px;
+        width: 300px;
+        
+       
+    }
+
+    
+</style>
+<body>
+    
+        <div>
+            
+            <img src="" id="imageMenu">
+            
+        </div>
+
+        <div id="div02">
+
+           <button id="prevBtn">이전</button> <button id="nextBtn">다음</button>
+            
+        </div>
+    <script>
+        let prevBtn=document.getElementById("prevBtn");
+        let nextBtn=document.getElementById("nextBtn");
+        let images=document.getElementById("imageMenu");
+
+        let i=1;
+        let link="./resources/images/test"+i+".jpg";
+        images.src=link;
+
+        onload=() => {
+            
+            prevBtn.addEventListener('click',handlePrev);
+            nextBtn.addEventListener('click',handleNext);
+
+        }
+        
+
+        function handleNext(){
+            
+            if(i==8){//마지막일떄
+
+
+                i=1;
+                link="./resources/images/test"+i+".jpg";
+                images.src=link;   
+            }
+            else{
+                i=i+1;
+                link="./resources/images/test"+i+".jpg";
+                images.src=link;
+              
+            }
+           
+        }   
+        function handlePrev(){
+            if(i==1){//처음일때
+                i=8;
+                link="./resources/images/test"+i+".jpg";
+                images.src=link;
+            }
+            else{
+                i=i-1;
+                link="./resources/images/test"+i+".jpg";
+                images.src=link;
+               
+            }
+            
+        }   
+
+    </script>
+</body> 
+</html>

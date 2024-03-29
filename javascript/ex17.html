@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let userDB=[
+            {id : 'aaa', name:'홍길동',age:20},
+            {id :'bbb', name:'김개똥',age:30},
+            {id:'ccc',name:'김개란',age:40}
+        ];
+        function init(){
+            //alert('실행');
+            const div=document.querySelector(".test");
+            let msg=`아이디:${userDB[0].id}<br>
+                        이름:${userDB[0].name}<br>
+                        나이:${userDB[0].age}<br>`;
+                        div.innerHTML=msg;
+
+                        divfunc1();
+        }
+        function divfunc1(){
+            const div2=document.querySelector(".test2");
+        let msg2="";
+        for(const user of userDB){
+            msg2+=`아이디:${user.id}<br>
+                  이름:${user.name}<br>
+                   나이:${user.age}<br>`;
+                  
+            }
+            div2.innerHTML=msg2; 
+     
+        }
+       
+    </script>
+</head>
+
+<body onload="init()">
+    <div class="test"></div>
+    <hr>
+    <div class="test2"></div>
+    
+</body>
+</html>

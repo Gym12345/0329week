@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+    #img {
+        position: relative;
+        left:0px;
+    }
+</style>
+<body>
+    <div>
+        <img id="img" src="/javascript/resources/images/p1.png"  width="100px" height="100px" >
+    </div>
+    Time:<p id="timerOutput"></p>
+    <button id="runningBtn">달리기</button>
+    <button id="stopBtn">멈추기</button>
+</body>
+<script>
+    var cnt=1;
+    var myVar;
+    let status=0;
+    let runningBtn=document.getElementById("runningBtn");
+    let stopBtn=document.getElementById("stopBtn");
+    let timerOutput=document.getElementById("timerOutput");
+
+
+    runningBtn.addEventListener("click",run);
+    stopBtn.addEventListener("click",stop);
+
+        // timerOutput.innerHtml=timer();
+
+    // let TimeCount=0;
+    // function Showtimer(){
+    //     myVar=setInterval(timer,1000);
+    // }
+    // function timer(){
+        
+    //     TimeCount=+1;
+
+    //     return TimeCount;
+    // }
+
+
+    
+
+    
+    function stop(event){
+        clearInterval(myVar);
+    }
+    
+    function timer(){
+
+    }
+
+    function run (event) {
+        if(10*leftpixel==1000){
+            alert("its already finished");
+        }else{
+            if(status=1){
+                stop();
+            }
+            
+
+            status=1;
+            myVar=setInterval(imgFunc,50);
+            console.log("2:"+myVar);
+            console.log('cnt:'+cnt);
+        }
+            
+    }
+
+   
+    let leftpixel=0;
+    const imgFunc=() =>{
+        
+        if(cnt==10) cnt=1;
+
+        $("#img").attr("src","/javascript/resources/images/p"+cnt+".png")
+                    .css("left",`${10*leftpixel}px`);
+            ;
+       
+        leftpixel++;
+        console.log("leftpixel:"+10*leftpixel)
+        cnt++;
+        if(10*leftpixel==1000){ 
+            //TimeCount=0;
+            stop();
+        }
+    }
+    
+
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <img id="displayImg"  src="" width="300px" height="300px">
+
+    <script>
+        const list =["car01","car02","car03"];
+        
+        let i=0;
+       
+        let currImg="";
+        let temp;
+
+        let displayImg=document.getElementById("displayImg");   // 이 3줄 temp 선언아래에 써주어야함
+        displayImg.addEventListener("mouseover", stop);
+        displayImg.addEventListener("mouseout", show);
+        show();
+       
+        function rollImg(){ 
+            
+            if(i==3){
+                i=0;
+                
+                
+                
+            }
+                currImg="./resources/images/";
+                currImg=currImg+list[i]+".png"
+                console.log(currImg);
+                displayImg.src= currImg;
+                i++;
+           
+        }
+
+        
+        function show(){
+            temp=setInterval(rollImg,500);
+        }
+      
+        
+        function stop(){
+            console.log("over");
+            clearInterval(temp); // Stop rolling the images
+        }
+    </script>
+</body>
+</html>

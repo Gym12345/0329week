@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <script>
+        test=() =>{
+            let txt=document.getElementById('txt');
+            if( txt.value==""){
+                alert('값입력하세요');
+                return;
+            }
+            fo.submit();
+            console.log(fo);
+            console.log(fo.txt);
+            let f=document.getElementById('fo');
+            f.querySelector(".div").innerHTML='다른값 변경';
+            document.getElementById('ddd').innerHTML='다른값 변경';
+        }
+    </script>
+<body>
+    
+    <form  id='fo' action="hello.html">
+        <input type="text" id="txt"><br>
+        <input type="submit" onclick="test()" value="submit전송">  <!-- submit은 항상 form 태그 를 동작시킴-->
+        <input type="button" onclick="test()" value="btn전송">   <!--위에 함수를 통해  submit 을 input type button 으로 도 작동 및 제출 제어가능-->
+
+    </form>
+</body>
+</html>

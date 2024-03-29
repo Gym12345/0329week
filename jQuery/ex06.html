@@ -1,0 +1,67 @@
+ 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        let member =[]
+        let cnt=0;
+        window.onload = ()=>{
+            let msg=""
+            for(let i=0;i<100;i++){
+                member[i]=i;
+                if(i<10){
+                msg+=i+"<br>";
+                cnt++;
+            }
+            }
+            console.log(member)
+            //로드가 되면 member를 보여줄텐데
+            $("#content").html(msg);
+        }
+        const appendVal=()=>{
+            // document.getElementById("txt").insertBefore
+            $("#txt").append("내용 추가")};
+             //내용 추가하는 것
+        const htmlVal=()=>{
+            // document.getElementById("txt").innerHTML
+            $("#txt").html("내용 교체")};
+           //내용을 갈아엎는 것
+        function inputVal(){
+            //var t =document.getElementById("val01").value;
+            var t = $("#val01").val();
+            //val()>>value와 같다.
+            $("#val01").val("")
+            $("#val02").val(t)
+        }
+        const view =() => {
+            let msg="<hr>";
+            for(let i=cnt+1;i<=cnt+10;i++){
+
+                msg+=member[i]+"<br>";
+                
+            }
+            cnt+=10;
+            // $("#content").html(msg);
+            $("#content").append(msg);
+            //스크롤을 내렸을 때 계속 늘어나는 것은 기본적으로 스크롤의 값을 가져와서 
+            //스크롤의 넓이를 늘려서 계속 서버에서 데이터를 가져와서 출력시켜준다.
+        }
+    </script>
+</head>
+<body>
+    <div id="txt"></div><hr>
+    <input type="text" id="val01"><br>
+    <input type="text" id="val02"><br>
+    <button onclick="inputVal()">input변경</button>
+    <button onclick="appendVal()">appendVal</button>
+    <button onclick="htmlVal()">htmlVal</button>
+    <hr>
+    <div id="content"></div>
+    <button onclick="view()">더보기</button>
+</body>
+</html>

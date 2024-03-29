@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id=RegisterForm action="Success.html" method="post">
+        id:<input type="text" id="userId" placeholder="아이디"><br>
+        pwd:<input type="password" id="userPwd"  placeholder="비밀번호"><br>
+        pwdCheck:<input type="password" id="userPwdCheck" placeholder="비밀번호 확인"><br>
+        name:<input type="text" id="userName"  placeholder="이름"><br>
+        <input type="button" onclick="submitForm()" value="제출">
+    </form>
+
+    <script>
+        let userId=document.getElementById('userId');
+        let userPwd=document.getElementById('userPwd');
+        let userPwdCheck=document.getElementById('userPwdCheck');
+        let userName=document.getElementById('userName');
+        
+
+        const submitForm = ()=>{
+            if(userId.value==""){
+            alert("아이디를 입력해주세요");
+        }
+        else if(userPwd.value != userPwdCheck.value   ){
+            alert("설정한 비밀번호와 다릅니다 ");
+        }
+        else if(userPwd.value==""){
+            alert("비밀번호를 입력해주세요");
+        }
+        
+        
+        else if(userName.value==""){
+            alert("이름을 입력해주세요");
+        }
+        else{
+           //document.getElementById('RegisterForm').submit();  // 이건 데이터 못보냄
+           const url = `Success.html?dummy=${encodeURIComponent("dummyData")}&name=${encodeURIComponent(userName.value)}&userId=${encodeURIComponent(userId.value)}`;// 첫번째 인자를 잘못읽는거같아서 
+           //첫번째엔 더미 데이터 넣어놓음
+            window.location.href = url;
+
+
+        }
+        }
+    </script>
+</body>
+</html>

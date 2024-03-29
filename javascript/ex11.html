@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         img{width:100px; height:100px}
+        
+    </style>
+
+<script>
+
+    onload=() =>{
+       
+        let img =document.getElementById("myImg");
+        let img02 =document.getElementById("myImg02");
+        img.addEventListener("mouseover",changeFunc01);
+        img.addEventListener("mouseout", changeFunc01);
+        img02.addEventListener("mouseover",changeFunc01);
+        img02.addEventListener("mouseout", changeFunc01);
+
+      
+    }
+    
+    let num=0;
+    changeFunc01=() =>{
+        const arr=["암호화.png","세션.png"];
+        let myImg=document.getElementById("myImg");
+        let myImg02=document.getElementById("myImg02");
+        
+            myImg.src=arr[num];
+            myImg02.src=arr[num];
+        if(num==1){
+          
+            num=0;
+        }else{
+           
+            num=1;
+        }
+
+    }
+   
+    
+
+</script>
+
+       
+
+
+
+
+
+
+</head>
+<body>
+    <img id="myImg" , src="세션.png" ><br>
+    <img id="myImg02" , src="세션.png" ><br>
+
+    
+    
+</body>
+</html>
