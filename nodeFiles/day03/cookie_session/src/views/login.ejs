@@ -1,0 +1,15 @@
+<% console.log("username: " , username); %>
+<% if(username) {%>
+    <b><%=username%> 님은 로그인 상태</b>
+    <br>
+    <a href="/session/logout">로그아웃</a>
+    <a href="/session/success">성공페이지</a>
+<%} else { %>
+    <form  action="/session/login_check" method="post">
+        <input type="text" name="id"><br>
+        <input type="text" name="pwd"><br>
+        <input type="submit" value="로그인"><br>
+    </form>
+<%} %>
+
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>list</h1>
+    <hr>
+    <table border="1">
+        <th>아이디</th><th>이름</th><th>주소</th>
+        <% for (let i=0 ; i< member.DBMember.length ;i++){ %>
+            <tr>
+             <td><%=member.DBMember[i].id%></td>
+            <td><a href="/getInfo?i=<%=i%>"><%=member.DBMember[i].name %></a></td>
+            <td><%=member.DBMember[i].addr %></td>
+            </tr>
+        <%} %> 
+    </table>
+    
+</body>
+</html>

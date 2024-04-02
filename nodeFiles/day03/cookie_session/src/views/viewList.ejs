@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Cart</title>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <% if (cart_array && cart_array.length > 0) { %>
+        <ul>
+            <% cart_array.forEach(item => { %>
+                <li>
+                    <strong>Goods ID:</strong> <%= item.goods_id %><br>
+                    <strong>Title:</strong> <%= item.title %><br>
+                    <strong>Price:</strong> <%= item.price %>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No items in the cart.</p>
+    <% } %>
+</body>
+</html>
