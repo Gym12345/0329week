@@ -9,6 +9,8 @@ const sessionConfig = {
     resave:false,
     saveUninitialized:true, //내용이 수정될때만 변경하겟다
     //cookie: {maxAge:5000} //기본은 30분
+
+    
 }
 
 

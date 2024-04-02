@@ -29,9 +29,6 @@ const login=(req,res) =>{
 }
 
 const scriptMsg=( sMsg, sUrl) =>{
-
-
-
     return `<script> alert("${sMsg}"); 
     location.href="${sUrl}";
     </script>`;
