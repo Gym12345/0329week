@@ -1,0 +1,48 @@
+rest.ejs
+<script>
+    let txt;
+    window.onload = () =>{
+        txt=document.getElementById("text");
+    }
+    const getFunc = ()  =>{
+        fetch("/test",{method:"get"})
+        .then(res => res.json())
+        .then(data => txt.innerHTML=data)
+    }
+    const postFunc = ()  =>{
+        fetch("/test",{method:"post"})
+        .then(res => res.json())
+        .then(data => txt.innerHTML=data)
+    }
+    const putFunc=async()=>{
+        const res = await fetch("/test",{method : "put"}) //타입 지정 시 method :
+        const data = await res.json();
+        text.innerHTML =data;
+        //메소드를 통해 접근할 수 있다.
+        //요청하는 건 test지만 연결 방삭이 다르기 때문에 웹쪽으로 연결
+    }
+    const deleteFunc=async()=>{
+        const res = await fetch("/test",{method : "delete"}) //타입 지정 시 method :
+        const data = await res.json();
+        text.innerHTML =data;
+    }
+
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="text">내용</span>
+
+    <hr>
+    
+    <button type="button" onclick="getFunc()">getFunc</button>
+    <button type="button" onclick="postFunc()">postFunc</button>
+    <button type="button" onclick="putFunc()">putFunc</button>
+    <button type="button" onclick="deleteFunc()">deleteFunc</button> 
+</body>
+</html>

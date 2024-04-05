@@ -13,6 +13,7 @@ const bodyParser = require("body-parser");
 const fileStore = require("session-file-store")(session); 
 config.sessionConfig.store=new fileStore();       
 //session store-ends
+
 app.set("views", path.join(__dirname, "/src/views"));
 app.set("view engine", "ejs");
 

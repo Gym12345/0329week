@@ -1,6 +1,6 @@
 const cookieConfig = {
     httpOnly: true,
-    maxAge: 5000,
+    maxAge: 50000,
     //signed:true   //암호화
 }
 

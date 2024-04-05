@@ -1,0 +1,45 @@
+<script>
+    function test() {
+       //fetch("/fetch01")
+    //    const result=fetch("/get_count")
+    //    console.log("result:",result);
+    //    result.then(res => {
+    //     console.log("res:", res);
+    //     return res.json();
+    //    })
+
+        fetch("/get_count")   //  fetching  res.json({cnt : count }) from app02
+        .then(res => {
+            res.json() //reads the respoonsebody and parse it to json
+            // console.log("res.json"+res.json)
+        })
+        
+    
+       .then(data =>{  //This callback function receives the parsed JSON data as its argument (referred to as data here).
+        console.log("data:",data);
+        document.getElementById("cnt").innerHTML=data.cnt;
+       })
+
+    } 
+
+    async function test2() {
+        const result=await fetch("/get_count");
+        console.log("result :" ,result);
+        const data = await result.json();
+        console.log("data:",data)
+        document.getElementById("cnt").innerHTML=data.cnt;
+
+    }
+    
+
+    
+</script>
+
+<h1>일</h1> 
+<h1>일</h1> 
+<h1>일</h1> 
+<h1>일</h1> 
+<h1>일</h1> 
+<button onclick="test()">클릭</button>
+<button onclick="test2()">클릭2</button>
+<span id="cnt"> <%=count %></span>

@@ -33,17 +33,31 @@ const scriptMsg=( sMsg, sUrl) =>{
     location.href="${sUrl}";
     </script>`;
 }
-const loginCheck=(req,res) => {
 
-    console.log(req.body);
-    console.log(req.body.id);
-    console.log(req.body['pwd']);
+const DbForSession=require("../../../../../db/DbForSession");
+const loginCheck=(req,res) => {  //아직 db연동 안됨
+
+    // console.log(req.body);
+    // console.log(req.body.id);
+    // console.log(req.body['pwd']);
 
     const DBId="aaa", DBPwd="aaa",DBNick="홍길동"
+
     if(DBId === req.body.id && DBPwd===req.body['pwd']) {
         req.session.username= DBId;
         req.session.nick=DBNick;
-        res.redirect("success");
+        req.session.save( () =>{
+
+            let successMsg = scriptMsg("로그인 성공", "/session/success");
+            res.send(successMsg);
+            // res.redirect("success");    // 또는 아래 방법  
+        }) 
+    
+        //그냥 res.redirect("success") 만쓰면 modified 된 세션파일을 저장 안하고 가는듯 그래서 이상하게 됨
+
+        //방법 2
+        // let successMsg = scriptMsg("로그인 성공", "/session/success");
+        // res.send(successMsg);
     }
     else{
         console.log("error")
@@ -73,8 +87,10 @@ const success = (req,res) =>{
 }
 const logout = (req,res) =>{
     req.session.destroy( () =>{
-        console.log("모든세션만료")
+        console.log("destroying session")
     } ); // 매개변수안에 콜백함수
+    // req.session.save() 
+        
     res.redirect("/session/login");
 }   
 

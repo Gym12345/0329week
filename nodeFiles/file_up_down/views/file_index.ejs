@@ -1,0 +1,26 @@
+<!-- <script>
+    const readURL = (input) =>{
+        console.log("input:"+input);
+        console.log(input.files[0])
+        const file=input.files[0];
+        if(file != ""){
+            let reader= new FileReader();
+            reader.readAsDataURL(file)
+            reader.onload = (e) => {
+                console.log(e.target.result);   // e.target.result :해당 파일 경로
+                document.getElementById("img").src= e.target.result;
+            }
+        }
+    }
+</script> -->
+
+<script src="/static/js/image_read.js"></script>
+<form action="/file/upload" method="post" enctype="multipart/form-data">
+    <input type="text" name="title"><br>
+    <img id="img" src="" width="100" height="100">    <!--미리보기 기능-->
+    <input type="file" name="file_name" onchange="readURL(this)"><br>   <!-- document.getelement 와 같은 this, 위 script 블록의 readURL을 부르고 this 는 현재 이 인풋 엘리먼트를 지칭함 -->
+    <input type="submit" value="전송"><br>
+    
+</form>
+<hr>
+<a href="/file/list">목록 확인</a>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Management</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="content"></div>
+    <hr>
+    <button type="button" id="getMembers">목록보기</button>
+    <button type="button" id="regView">회원가입</button>
+
+    <script>
+
+        
+        let members = [
+            { id: 'aaa', pwd: "aaa", name: "joo", addr: "seoul" },
+            { id: 'bbb', pwd: "bbb", name: "choi", addr: "Inchoen" },
+            { id: 'ccc', pwd: "ccc", name: "lee", addr: "kimhae" }
+        ];
+
+        let content;
+
+        $(document).ready(() => {
+            content = $("#content");
+
+            $("#getMembers").click(getMembers);
+            $("#regView").click(registerView);
+        });
+
+        const registerView = () => {
+            let msg = `
+                <form id="form">
+                    <input type="text" name="id" id="id" placeholder="input id"><br>
+                    <input type="text" name="pwd" id="pwd" placeholder="input pwd"><br>
+                    <input type="text" name="name" id="name" placeholder="input name"><br>
+                    <input type="text" name="addr" id="addr" placeholder="input addr"><br>
+                    <input type="button" id="registerBtn" value="저장"><br>
+                </form>`;
+            content.html(msg);
+
+            $("#registerBtn").click(register);
+        }
+
+        const register = () => {
+            const data = $("#form").serializeArray().reduce((acc, cur) => {
+                acc[cur.name] = cur.value;
+                return acc;
+            }, {});
+
+            members.push(data);
+            alert("회원가입 성공");
+            getMembers();
+        }
+
+        const getMembers = () => {
+            let msg = '<table border="1">';
+            msg += "<tr><th>아이디</th> <th>비번</th> <th>이름</th> <th>주소</th></tr>";
+            members.forEach(mem => {
+                msg += "<tr>";
+                msg += `<td style="cursor:pointer;" onclick="info('${mem.id}')">${mem.id}</td>
+                         <td>${mem.pwd}</td>
+                         <td>${mem.name}</td>
+                         <td>${mem.addr}</td>`;
+                msg += "</tr>";
+            });
+            msg += "</table>";
+            content.html(msg);
+        }
+
+        const info = (id) => {
+            const member = members.find(mem => mem.id === id);
+            let msg = `id: ${member.id}<br>
+                       pwd: ${member.pwd}<br>
+                       name: ${member.name}<br>
+                       addr: ${member.addr}<br>
+                       <span style="cursor:pointer;" onclick="getMembers()">목록으로 이동</span>
+                       /&nbsp;/&nbsp;
+                       <span style="cursor:pointer;" onclick="modifyForm('${member.id}')">수정</span>
+                       /&nbsp;/&nbsp;
+                       <span style="cursor:pointer;" onclick="deleteMember('${member.id}')">삭제</span>`;
+            content.html(msg);
+        }
+
+        const modifyForm = (id) => {
+            let member = members.find(mem => mem.id === id);
+            let msg = `
+                <form id="modifyForm">
+                    <input type="text" name="id" id="id" value="${member.id}" readonly><br>
+                    <input type="text" name="pwd" id="pwd" value="${member.pwd}"><br>
+                    <input type="text" name="name" id="name" value="${member.name}"><br>
+                    <input type="text" name="addr" id="addr" value="${member.addr}"><br>
+                    <input type="button" id="modifyBtn" value="수정"><br>
+                </form>`;
+            content.html(msg);
+
+            $("#modifyBtn").click(() => modify(id));
+        }
+
+        const modify = (id) => {
+            const index = members.findIndex(mem => mem.id === id);
+            const data = $("#modifyForm").serializeArray().reduce((acc, cur) => {
+                acc[cur.name] = cur.value;
+                return acc;
+            }, {});
+
+            members[index] = data;
+            alert("수정 성공");
+            info(data.id);
+        }
+
+        const deleteMember = (id) => {
+            const index = members.findIndex(mem => mem.id === id);
+            if (index !== -1) {
+                members.splice(index, 1);
+                alert("삭제 성공");
+                getMembers();
+            }
+        }
+    </script>
+</body>
+</html>

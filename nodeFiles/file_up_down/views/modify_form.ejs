@@ -1,0 +1,25 @@
+<h3>수정페이지</h3>
+<!-- <script>
+    const readURL = (input) =>{
+        console.log("input:"+input);
+        console.log(input.files[0])
+        const file=input.files[0];
+        if(file != ""){
+            let reader= new FileReader();
+            reader.readAsDataURL(file)
+            reader.onload = (e) => {
+                console.log(e.target.result);   // e.target.result :해당 파일 경로
+                document.getElementById("img").src= e.target.result;
+            }
+        }
+    }
+</script> -->
+<script src="/static/js/image_read.js"></script>
+<form action="/file/modify" method="post" enctype="multipart/form-data">
+
+    <input type="hidden" name="originFileName" value="<%=fileName%>">
+    <img id="img" src="/file/download/<%=fileName%>" width="100px" height="100px"> <br>
+    <input type="file" name="newFileName" onchange="readURL(this)">
+    <input type="submit" value="수정">
+
+</form>
