@@ -21,6 +21,7 @@ const view = {
     }
 };
 
+
 const process = {
     upload: (req, res) => {
         console.log("upload 연동");
@@ -42,11 +43,11 @@ const process = {
     modify:(req,res) =>{
         console.log('req.file(modify):',req.file); //req.file = 사용자가 변경할파일
         console.log('req.body.originName(modify):',req.body.originFileName)
-        
+
         if(req.file !==req.body.originFileName  && req.file !=undefined){
             fs.unlinkSync("./upload_file/"+ req.body.originFileName);
         }
-            
+
         res.redirect("/file/list");
 
        
